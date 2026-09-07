@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // --- All non-sidebar buttons, filter tabs & top-user avatar redirect to 404 page ---
+  // --- All non-sidebar buttons, filter tabs, top-user avatar & "more" links redirect to 404 page ---
   document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a[href], .tab-chip, .dash-top-user') : null;
+    var el = e.target.closest ? e.target.closest('button, a[href], .tab-chip, .dash-top-user, .more') : null;
     if (!el) return;
     // Sidebar section (nav, close, foot links) and the hamburger stay functional
     if (el.closest('.dash-sidebar')) return;

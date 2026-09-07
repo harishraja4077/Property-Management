@@ -460,7 +460,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       setTimeout(function() {
         btn.disabled = false;
-        window.location.href = '404.html';
+        saveUserSession(email, window.selectedRole === 'admin' ? 'admin' : 'user');
+        window.location.href = (window.selectedRole === 'admin') ? 'admindashboard.html' : 'userdashboard.html';
       }, 800);
     });
   }
@@ -517,8 +518,13 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.disabled = true;
 
       setTimeout(function() {
-        btn.disabled = false;
-        window.location.href = '404.html';
+        btn.innerHTML = '<i class="fas fa-check"></i> Account Created!';
+        btn.style.background = '#27ae60';
+        btn.style.color = '#fff';
+        setTimeout(function() {
+          btn.disabled = false;
+          window.location.href = 'sign-in.html';
+        }, 1200);
       }, 800);
     });
   }

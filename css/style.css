@@ -3493,7 +3493,7 @@ p, a, li, span, label {
   }
 
   .hero {
-    padding-top: var(--header-height);
+    padding-top: calc(var(--header-height) + 32px);
     padding-bottom: 36px;
   }
   .hero-content { padding-bottom: 24px; }
@@ -3835,8 +3835,7 @@ body.menu-open {
 }
 
 .hero-content > * {
-  opacity: 0;
-  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-content > *:nth-child(1) { animation-delay: 0.15s; }
