@@ -16,6 +16,17 @@ function isValidGmail(email) {
   return domain === 'gmail.com' && /^[A-Za-z0-9._%+-]+$/.test(local);
 }
 
+// --- Password validation: min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char ---
+function isValidPassword(password) {
+  if (typeof password !== 'string') return false;
+  if (password.length < 8) return false;
+  if (!/[A-Z]/.test(password)) return false;
+  if (!/[a-z]/.test(password)) return false;
+  if (!/[0-9]/.test(password)) return false;
+  if (!/[^A-Za-z0-9]/.test(password)) return false;
+  return true;
+}
+
 // --- Show an inline/submit error for an invalid email field ---
 function showFieldError(input, message) {
   if (!input) return;
@@ -94,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const navOverlay = document.getElementById('navOverlay');
-  const navClose = document.getElementById('navClose');
 
   function openMenu() {
     if (menuToggle) menuToggle.classList.add('active');
@@ -119,10 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (navOverlay) {
       navOverlay.addEventListener('click', closeMenu);
-    }
-
-    if (navClose) {
-      navClose.addEventListener('click', closeMenu);
     }
 
     navLinks.querySelectorAll('a').forEach(function(link) {
@@ -293,13 +299,15 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = this.querySelector('button[type="submit"]');
-      var originalText = btn.innerHTML;
       var firstInvalid = null;
 
       // Validate all required fields
       var required = this.querySelectorAll('[required]');
       required.forEach(function(field) {
-        if (!field.value.trim()) {
+        var empty = field.type === 'checkbox'
+          ? !field.checked
+          : !(field.value && field.value.trim());
+        if (empty) {
           showFieldError(field, 'This field is required.');
           if (!firstInvalid) firstInvalid = field;
         }
@@ -308,7 +316,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // Validate the contact email: must end with @gmail.com
       var emailInput = this.querySelector('input[type="email"]');
       if (emailInput && !isValidGmail(emailInput.value)) {
-        showFieldError(emailInput, 'Please enter a valid Gmail address (must end with @gmail.com).');
+        if (!emailInput.value.trim()) {
+          showFieldError(emailInput, 'Please enter your email address.');
+        } else {
+          showFieldError(emailInput, 'Please enter a valid Gmail address (must end with @gmail.com).');
+        }
         if (!firstInvalid) firstInvalid = emailInput;
       }
 
@@ -317,32 +329,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      // Compose a real email to the Stackly team via the visitor's mail client
-      var firstName = this.querySelector('[name="firstName"]');
-      var lastName = this.querySelector('[name="lastName"]');
-      var phone = this.querySelector('[name="phone"]');
-      var subject = this.querySelector('[name="subject"]');
-      var message = this.querySelector('[name="message"]');
-
-      var mailSubject = encodeURIComponent('[Contact Inquiry] ' + subject.value);
-      var mailBody = encodeURIComponent(
-        'Name: ' + firstName.value.trim() + ' ' + lastName.value.trim() + '\n' +
-        'Phone: ' + (phone.value.trim() || 'Not provided') + '\n' +
-        'Email: ' + emailInput.value.trim() + '\n\n' +
-        message.value.trim()
-      );
-      window.location.href = 'mailto:thestackly@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
-
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = '#27ae60';
-      btn.style.color = '#fff';
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
 
       setTimeout(function() {
-        btn.innerHTML = originalText;
-        btn.style.background = '';
-        btn.style.color = '';
-        contactForm.reset();
-      }, 3000);
+        window.location.href = '404.html';
+      }, 800);
     });
   }
 
@@ -435,16 +427,31 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = this.querySelector('button[type="submit"]');
-      var originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing In...';
-      btn.disabled = true;
+      var firstInvalid = null;
 
       var emailInput = document.getElementById('loginEmail');
+      var passInput = document.getElementById('loginPassword');
       var email = emailInput ? emailInput.value.trim() : '';
-      if (!isValidGmail(email)) {
+
+      // Validate required fields
+      if (!passInput || !passInput.value || !passInput.value.trim()) {
+        showFieldError(passInput, 'Please enter your password.');
+        if (!firstInvalid) firstInvalid = passInput;
+      } else if (!isValidPassword(passInput.value)) {
+        showFieldError(passInput, 'Password must be at least 8 characters with 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.');
+        if (!firstInvalid) firstInvalid = passInput;
+      }
+
+      if (!email) {
+        showFieldError(emailInput, 'Please enter your email address.');
+        if (!firstInvalid) firstInvalid = emailInput;
+      } else if (!isValidGmail(email)) {
         showFieldError(emailInput, 'Please enter a valid Gmail address (must end with @gmail.com).');
-        btn.innerHTML = originalText;
-        btn.disabled = false;
+        if (!firstInvalid) firstInvalid = emailInput;
+      }
+
+      if (firstInvalid) {
+        firstInvalid.focus();
         return;
       }
 
@@ -452,15 +459,9 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.disabled = true;
 
       setTimeout(function() {
-        btn.innerHTML = '<i class="fas fa-check"></i> Welcome Back!';
-        btn.style.background = '#27ae60';
-        btn.style.color = '#fff';
-        setTimeout(function() {
-          // Persist the logged-in user's email/role/initials
-          saveUserSession(email, window.selectedRole === 'admin' ? 'admin' : 'user');
-          window.location.href = (window.selectedRole === 'admin') ? 'admindashboard.html' : 'userdashboard.html';
-        }, 1200);
-      }, 1500);
+        btn.disabled = false;
+        window.location.href = '404.html';
+      }, 800);
     });
   }
 
@@ -470,24 +471,45 @@ document.addEventListener('DOMContentLoaded', function() {
     registerForm.addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = this.querySelector('button[type="submit"]');
-      var originalText = btn.innerHTML;
+      var firstInvalid = null;
 
       var pass = document.getElementById('signupPassword');
       var confirm = document.getElementById('confirmPassword');
 
-      if (pass && confirm && pass.value !== confirm.value) {
+      // Validate required fields
+      var required = this.querySelectorAll('[required]');
+      required.forEach(function(field) {
+        var empty = field.type === 'checkbox'
+          ? !field.checked
+          : !(field.value && field.value.trim());
+        if (empty) {
+          showFieldError(field, 'This field is required.');
+          if (!firstInvalid) firstInvalid = field;
+        }
+      });
+
+      if (pass && pass.value.trim() && !isValidPassword(pass.value)) {
+        showFieldError(pass, 'Password must be at least 8 characters with 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.');
+        if (!firstInvalid) firstInvalid = pass;
+      }
+
+      if (pass && pass.value && confirm && confirm.value && pass.value !== confirm.value) {
         var confirmInput = confirm.closest('.input-wrapper').querySelector('input');
         confirmInput.style.borderColor = '#e74c3c';
         confirmInput.style.boxShadow = '0 0 0 4px rgba(231,76,60,0.15)';
-        return;
+        showFieldError(confirmInput, 'Passwords do not match.');
+        if (!firstInvalid) firstInvalid = confirmInput;
       }
 
       var regEmail = document.getElementById('registerEmail');
       var regEmailVal = regEmail ? regEmail.value.trim() : '';
-      if (!isValidGmail(regEmailVal)) {
+      if (regEmailVal && !isValidGmail(regEmailVal)) {
         showFieldError(regEmail, 'Please enter a valid Gmail address (must end with @gmail.com).');
-        btn.innerHTML = originalText;
-        btn.disabled = false;
+        if (!firstInvalid) firstInvalid = regEmail;
+      }
+
+      if (firstInvalid) {
+        firstInvalid.focus();
         return;
       }
 
@@ -495,15 +517,9 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.disabled = true;
 
       setTimeout(function() {
-        btn.innerHTML = '<i class="fas fa-check"></i> Account Created!';
-        btn.style.background = '#27ae60';
-        btn.style.color = '#fff';
-        setTimeout(function() {
-          // Persist the registered user's email/role/initials
-          saveUserSession(regEmailVal, window.selectedRole === 'admin' ? 'admin' : 'user');
-          window.location.href = (window.selectedRole === 'admin') ? 'admindashboard.html' : 'userdashboard.html';
-        }, 1200);
-      }, 1500);
+        btn.disabled = false;
+        window.location.href = '404.html';
+      }, 800);
     });
   }
 
@@ -522,21 +538,27 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       var btn = this.querySelector('button');
       var input = this.querySelector('input');
+      var btnOriginalText = btn.innerHTML;
+
+      // Require a value before validating format
+      if (!input || !input.value || !input.value.trim()) {
+        showFieldError(input, 'Please enter your email address.');
+        return;
+      }
 
       // Require a valid @gmail.com address
-      if (!isValidGmail(input ? input.value : '')) {
+      if (!isValidGmail(input.value)) {
         showFieldError(input, 'Please enter a valid Gmail address (must end with @gmail.com).');
         return;
       }
 
-      var originalHtml = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-check"></i>';
-      btn.style.background = '#27ae60';
-      input.value = '';
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+      btn.disabled = true;
       setTimeout(function() {
-        btn.innerHTML = originalHtml;
-        btn.style.background = '';
-      }, 2000);
+        btn.innerHTML = btnOriginalText;
+        btn.disabled = false;
+        window.location.href = '404.html';
+      }, 800);
     });
   });
 

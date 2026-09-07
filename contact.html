@@ -19,8 +19,7 @@
       <a href="index.html" class="logo">
         <img src="Assets/logo.webp" alt="Stackly" class="logo-img">
       </a>
-      <nav class="nav-links" id="navLinks">
-        <button class="nav-close" id="navClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+<nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
@@ -90,7 +89,7 @@
           <span class="subtitle" style="display:inline-block; margin-bottom:12px; font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:var(--accent);">Get In Touch</span>
           <h2 style="font-size:2.2rem; margin-bottom:8px;">Send Us a Message</h2>
           <p style="color:var(--text-light); margin-bottom:24px;">Whether you need property management, a valuation, or expert guidance â€” our team typically responds within 24 hours.</p>
-          <div class="contact-form" style="box-shadow:none; padding:0;">
+          <div class="contact-form">
             <form id="contactForm">
               <div class="form-row">
                 <div class="form-group">
@@ -137,19 +136,14 @@
           </div>
         </div>
         <div class="animate-on-scroll animate-delay-2">
-          <div class="map-placeholder" style="border-radius:var(--radius); height:100%; min-height:560px; position:relative;">
-            <div class="map-overlay-brand">
-              <div class="map-brand-badge"><i class="fas fa-building"></i></div>
-              <h3>Stackly</h3>
-              <p>Property Management</p>
-            </div>
-            <i class="fas fa-map-marked-alt" style="font-size:3.5rem;color:var(--primary);opacity:0.85;"></i>
-            <p style="font-size:1.15rem; font-weight:600; color:var(--primary); margin-top:12px;">Stackly MMR Complex</p>
-            <p style="color:var(--text-light);">Chinna Thirupathi, near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</p>
-            <div class="map-actions" style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center;">
-              <a href="404.html" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-directions"></i> Get Directions</a>
-              <a href="404.html" class="btn btn-outline-dark btn-sm"><i class="fas fa-phone-alt"></i> Call Us</a>
-            </div>
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps?q=Stackly%20MMR%20Complex%2C%20Chinna%20Thirupathi%2C%20near%20Chinna%20Muniyappan%20Kovil%2C%20Salem%2C%20Tamil%20Nadu%20636008&output=embed&z=16"
+              class="map-iframe"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Stackly Property Management - Salem, Tamil Nadu"></iframe>
           </div>
         </div>
       </div>

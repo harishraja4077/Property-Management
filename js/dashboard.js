@@ -87,6 +87,26 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () { t.remove(); }, 3100);
   };
 
+  // --- Validate a dash form: required fields -> error message; valid -> 404 page ---
+  window.validateDashForm = function (form) {
+    var firstInvalid = null;
+    form.querySelectorAll('[required]').forEach(function (field) {
+      var v = field.value ? field.value.trim() : '';
+      if (!v) {
+        showFieldError(field, 'This field is required.');
+        if (!firstInvalid) firstInvalid = field;
+      }
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return false;
+    }
+    setTimeout(function () {
+      window.location.href = '404.html';
+    }, 600);
+    return false;
+  };
+
   // --- Live search in tables (data-search attr on input, data-search-row on tbody) ---
   var searchInputs = document.querySelectorAll('input[data-search]');
   searchInputs.forEach(function (inp) {
@@ -107,13 +127,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // --- All non-sidebar buttons redirect to 404 page ---
+  // --- All non-sidebar buttons, filter tabs & top-user avatar redirect to 404 page ---
   document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a[href]') : null;
+    var el = e.target.closest ? e.target.closest('button, a[href], .tab-chip, .dash-top-user') : null;
     if (!el) return;
     // Sidebar section (nav, close, foot links) and the hamburger stay functional
     if (el.closest('.dash-sidebar')) return;
     if (el.classList.contains('dash-burger')) return;
+    // Let form submit buttons run their onsubmit validation first
+    if (el.type === 'submit' && el.form) return;
     // Capture phase: swallow demo handlers (toast / switchTo / confirm) and navigate
     e.stopPropagation();
     e.preventDefault();
