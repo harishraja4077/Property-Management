@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Stackly Property Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner">
+    </div>
+  </div>
+<!-- Navigation -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="Assets/logo.webp" alt="Stackly" class="logo-img">
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <button class="nav-close" id="navClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="sign-in.html" class="nav-signin"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay">
+  </div>
+<!-- Section 1: Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>Comprehensive property management solutions designed for maximum returns</p>
+      <div class="breadcrumb">
+        <a href="404.html">Home</a><i class="fas fa-chevron-right" style="font-size:0.7rem; color:rgba(255,255,255,0.4);"></i><span>Services</span>
+      </div>
+    </div>
+  </section>
+<!-- Section 2: Services Overview -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="subtitle">What We Offer</span>
+        <h2>Full-Service Property Management</h2>
+        <p>Everything you need to manage your property efficiently and profitably</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-search-dollar"></i>
+          </div>
+          <h3>Property Valuation</h3>
+          <p>Accurate market analysis using comparable sales data and local market trends to determine optimal pricing.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll animate-delay-1">
+          <div class="service-icon">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <h3>Tenant Screening</h3>
+          <p>Comprehensive background checks including credit, employment, and rental history verification.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll animate-delay-2">
+          <div class="service-icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+          <h3>Rent Collection</h3>
+          <p>Automated rent collection with online payment options and timely owner disbursements.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll animate-delay-3">
+          <div class="service-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Maintenance</h3>
+          <p>Proactive and reactive maintenance with our vetted contractor network available 24/7.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Legal Compliance</h3>
+          <p>Stay compliant with local, state, and federal regulations. We handle all legal documentation.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll animate-delay-1">
+          <div class="service-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3>Marketing & Listing</h3>
+          <p>Professional photography, premium listings on major platforms, and social media promotion.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll animate-delay-2">
+          <div class="service-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3>Financial Reporting</h3>
+          <p>Detailed monthly statements, annual tax summaries, and real-time financial dashboards.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-card animate-on-scroll animate-delay-3">
+          <div class="service-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>Eviction Management</h3>
+          <p>Full eviction process handling from notice to court representation, when necessary.</p>
+          <a href="404.html" class="learn-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Section 3: Service Details -->
+  <section class="section section-alt" id="service-valuation">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content animate-on-scroll">
+          <span class="subtitle">Property Valuation</span>
+          <h2>Know Your Property's True Worth</h2>
+          <p>Our certified appraisers use advanced analytics and deep local market knowledge to provide accurate property valuations. Whether you're buying, selling, or renting, knowing the right price is crucial for success.</p>
+          <p>We analyze comparable properties, market trends, neighborhood developments, and property conditions to deliver comprehensive valuation reports.</p>
+          <ul class="check-list">
+            <li>
+              <i class="fas fa-check"></i> Comparative Market Analysis (CMA)
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Property Condition Assessment
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Rental Rate Analysis
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Investment ROI Projections
+            </li>
+          </ul>
+        </div>
+        <div class="split-images animate-on-scroll animate-delay-2">
+          <div class="main-img">
+            <img src="Assets/valuation.webp" alt="Property Valuation">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Section 4: Service Details 2 -->
+  <section class="section" id="service-screening">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-images animate-on-scroll">
+          <div class="main-img">
+            <img src="Assets/screening.webp" alt="Tenant Screening">
+          </div>
+        </div>
+        <div class="split-content animate-on-scroll animate-delay-2">
+          <span class="subtitle">Tenant Screening</span>
+          <h2>Find Reliable, Responsible Tenants</h2>
+          <p>Our rigorous screening process ensures only qualified tenants occupy your property. We conduct thorough background checks that cover credit history, criminal records, employment verification, and previous landlord references.</p>
+          <p>Our screening reduces vacancy periods and minimizes the risk of costly tenant issues down the road.</p>
+          <ul class="check-list">
+            <li>
+              <i class="fas fa-check"></i> Credit Score & History Review
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Criminal Background Check
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Employment & Income Verification
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Previous Landlord References
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Section 5: Pricing -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="subtitle">Pricing Plans</span>
+        <h2>Management Plans</h2>
+        <p>Transparent pricing with no hidden fees. Choose the plan that suits your needs.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card animate-on-scroll">
+          <h3>Basic</h3>
+          <p style="color:var(--text-light); font-size:0.9rem;">Essential management for individual landlords</p>
+          <div class="price">
+$149<small>/mo</small>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <i class="fas fa-check"></i> Up to 3 Properties
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Tenant Screening
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Rent Collection
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Monthly Reporting
+            </li>
+            <li class="disabled">
+              <i class="fas fa-times"></i> Maintenance Coordination
+            </li>
+            <li class="disabled">
+              <i class="fas fa-times"></i> Legal Support
+            </li>
+          </ul>
+          <a href="404.html" class="btn btn-outline-dark" style="width:100%; justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card featured animate-on-scroll animate-delay-1">
+          <div class="pricing-badge">
+Most Popular
+          </div>
+          <h3>Professional</h3>
+          <p style="color:var(--text-light); font-size:0.9rem;">Full management for serious investors</p>
+          <div class="price">
+$299<small>/mo</small>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <i class="fas fa-check"></i> Up to 10 Properties
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Tenant Screening
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Rent Collection
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Monthly Reporting
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Maintenance Coordination
+            </li>
+            <li class="disabled">
+              <i class="fas fa-times"></i> Legal Support
+            </li>
+          </ul>
+          <a href="404.html" class="btn btn-primary" style="width:100%; justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card animate-on-scroll animate-delay-2">
+          <h3>Enterprise</h3>
+          <p style="color:var(--text-light); font-size:0.9rem;">Complete solution for portfolio owners</p>
+          <div class="price">
+$499<small>/mo</small>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <i class="fas fa-check"></i> Unlimited Properties
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Tenant Screening
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Rent Collection
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Real-Time Reporting
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Priority Maintenance
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Full Legal Support
+            </li>
+          </ul>
+          <a href="404.html" class="btn btn-outline-dark" style="width:100%; justify-content:center;">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Section 6: FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="subtitle">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our property management services</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item active">
+          <div class="faq-question">
+What percentage do you charge for property management?<i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer" style="max-height:200px;">
+            <p>Our management fees vary by plan. The Basic plan starts at $149/month, Professional at $299/month, and Enterprise at $499/month. For larger portfolios, we offer custom pricing. All plans include no hidden fees and transparent billing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+How quickly can you find a tenant for my property?<i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>On average, we find qualified tenants within 7-14 days. Our extensive marketing network and database of pre-screened tenants allows us to minimize vacancy periods significantly compared to industry averages.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+Do you handle maintenance and repairs?<i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we handle all aspects of property maintenance. We have a network of vetted, licensed contractors who provide competitive pricing. All maintenance requests are tracked through our platform, and owners receive detailed reports.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+How often will I receive financial reports?<i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>All plans include monthly financial statements. Professional and Enterprise plans offer real-time dashboard access where you can view income, expenses, and property performance anytime. Annual tax summaries are also provided.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+What happens if a tenant stops paying rent?<i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We have a structured process for handling late payments including automated reminders, personal contact, and if necessary, formal legal notices. Our Enterprise plan includes full eviction management with court representation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Section 7: CTA -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <img src="Assets/cta-3.webp" alt="CTA Background">
+    </div>
+    <div class="cta-overlay">
+    </div>
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2>Start Managing Your Property Today</h2>
+        <p>Get a free property assessment and discover how Stackly can maximize your returns while minimizing your hassle.</p>
+        <div class="cta-buttons">
+          <a href="404.html" class="btn btn-primary"><i class="fas fa-phone"></i> Get Free Consultation</a><a href="404.html" class="btn btn-outline"><i class="fas fa-envelope"></i> Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="index.html" class="logo" style="margin-bottom:16px;">
+            <img src="Assets/logo.webp" alt="Stackly" class="logo-img" style="height:52px;">
+          </a>
+          <p>Premium property management services trusted by thousands of property owners across the nation.</p>
+          <div class="footer-social">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a><a href="404.html"><i class="fab fa-twitter"></i></a><a href="404.html"><i class="fab fa-instagram"></i></a><a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About Us</a>
+            </li>
+            <li>
+              <a href="services.html">Services</a>
+            </li>
+            <li>
+              <a href="blog.html">Blog</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Our Services</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="404.html">Property Valuation</a>
+            </li>
+            <li>
+              <a href="404.html">Tenant Screening</a>
+            </li>
+            <li>
+              <a href="404.html">Rent Collection</a>
+            </li>
+            <li>
+              <a href="404.html">Maintenance</a>
+            </li>
+            <li>
+              <a href="404.html">Legal Compliance</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Get In Touch</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <span class="fc-icon"><i class="fas fa-map-marker-alt"></i></span><span>Stackly MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <span class="fc-icon fc-center"><i class="fas fa-phone-alt"></i></span><a href="404.html">+91 70107 92745</a>
+            </div>
+            <div class="footer-contact-item">
+              <span class="fc-icon fc-center"><i class="fas fa-envelope"></i></span><a href="404.html">thestackly@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a><a href="404.html">Terms of Service</a><a href="404.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+  <script src="js/script.js">
+  </script>
+</body>
+</html>

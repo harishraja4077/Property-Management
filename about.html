@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Stackly Property Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="preloader" id="preloader"><div class="preloader-spinner"></div></div>
+
+  <!-- Navigation -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="Assets/logo.webp" alt="Stackly" class="logo-img">
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <button class="nav-close" id="navClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="sign-in.html" class="nav-signin"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Section 1: Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>About Stackly</h1>
+      <p>Building trust through exceptional property management since 2009</p>
+      <div class="breadcrumb">
+        <a href="404.html">Home</a>
+        <i class="fas fa-chevron-right" style="font-size:0.7rem; color:rgba(255,255,255,0.4);"></i>
+        <span>About Us</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Story / Split -->
+  <section class="section">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-images animate-on-scroll">
+          <div class="main-img">
+            <img src="Assets/story.webp" alt="Our Story">
+          </div>
+          <div class="floating-card">
+            <h3>15+</h3>
+            <p>Years of Excellence</p>
+          </div>
+        </div>
+        <div class="split-content animate-on-scroll animate-delay-2">
+          <span class="subtitle">Our Story</span>
+          <h2>From Humble Beginnings to Industry Leaders</h2>
+          <p>Stackly was founded in 2009 by a team of real estate professionals who saw a gap in the property management industry. What started as a small operation managing a handful of properties has grown into a nationally recognized firm overseeing thousands of residential and commercial properties.</p>
+          <p>Our mission has remained the same: to provide property owners with peace of mind through transparent, efficient, and result-driven management services.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Founded with a passion for real estate excellence</li>
+            <li><i class="fas fa-check"></i> Grew from 50 to 2,500+ properties under management</li>
+            <li><i class="fas fa-check"></i> Expanded to 12 metropolitan areas nationwide</li>
+            <li><i class="fas fa-check"></i> Winner of multiple industry excellence awards</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Mission & Vision -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div class="why-card animate-on-scroll" style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:48px 36px; text-align:center;">
+          <div class="icon" style="background:rgba(200,164,92,0.15); margin:0 auto 20px;"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p style="color:var(--text-light); line-height:1.8;">To empower property owners with comprehensive, technology-driven management solutions that maximize returns, minimize stress, and create lasting value for every stakeholder involved.</p>
+        </div>
+        <div class="why-card animate-on-scroll animate-delay-1" style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:48px 36px; text-align:center;">
+          <div class="icon" style="background:rgba(200,164,92,0.15); margin:0 auto 20px;"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p style="color:var(--text-light); line-height:1.8;">To be the most trusted and innovative property management company in the nation, setting the gold standard for service quality, transparency, and client satisfaction in real estate management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-icon"><i class="fas fa-home"></i></div>
+          <h3 class="counter" data-target="2547">0</h3>
+          <p>Properties Managed</p>
+        </div>
+        <div class="stat-item animate-on-scroll animate-delay-1">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <h3 class="counter" data-target="1823">0</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-item animate-on-scroll animate-delay-2">
+          <div class="stat-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3 class="counter" data-target="12">0</h3>
+          <p>City Locations</p>
+        </div>
+        <div class="stat-item animate-on-scroll animate-delay-3">
+          <div class="stat-icon"><i class="fas fa-award"></i></div>
+          <h3 class="counter" data-target="42">0</h3>
+          <p>Awards Won</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Team -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="subtitle">Our Team</span>
+        <h2>Meet the Experts</h2>
+        <p>Dedicated professionals committed to delivering exceptional property management</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card animate-on-scroll">
+          <div class="team-card-img">
+            <img src="Assets/team-1.webp" alt="Robert Harper">
+          </div>
+          <div class="team-card-info">
+            <h3>Robert Harper</h3>
+            <span>CEO & Founder</span>
+            <div class="team-social">
+              <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll animate-delay-1">
+          <div class="team-card-img">
+            <img src="Assets/team-2.webp" alt="Jennifer Collins">
+          </div>
+          <div class="team-card-info">
+            <h3>Jennifer Collins</h3>
+            <span>Director of Operations</span>
+            <div class="team-social">
+              <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll animate-delay-2">
+          <div class="team-card-img">
+            <img src="Assets/team-3.webp" alt="David Kim">
+          </div>
+          <div class="team-card-info">
+            <h3>David Kim</h3>
+            <span>Head of Acquisitions</span>
+            <div class="team-social">
+              <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll animate-delay-3">
+          <div class="team-card-img">
+            <img src="Assets/team-4.webp" alt="Amanda Foster">
+          </div>
+          <div class="team-card-info">
+            <h3>Amanda Foster</h3>
+            <span>Client Relations Manager</span>
+            <div class="team-social">
+              <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Gallery -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="subtitle">Our Portfolio</span>
+        <h2>Property Gallery</h2>
+        <p>A glimpse into the premium properties we manage</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item animate-on-scroll">
+          <img src="Assets/gallery-1.webp" alt="Property 1">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll animate-delay-1">
+          <img src="Assets/gallery-2.webp" alt="Property 2">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll animate-delay-2">
+          <img src="Assets/gallery-3.webp" alt="Property 3">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll animate-delay-3">
+          <img src="Assets/gallery-4.webp" alt="Property 4">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll">
+          <img src="Assets/gallery-5.webp" alt="Property 5">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll animate-delay-1">
+          <img src="Assets/gallery-6.webp" alt="Property 6">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll animate-delay-2">
+          <img src="Assets/gallery-7.webp" alt="Property 7">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll animate-delay-3">
+          <img src="Assets/gallery-8.webp" alt="Property 8">
+          <div class="gallery-overlay"><i class="fas fa-plus"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Values -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="subtitle">Our Values</span>
+        <h2>What Drives Us</h2>
+        <p>The core principles that define our approach to property management</p>
+      </div>
+      <div class="why-us-grid">
+        <div class="why-card animate-on-scroll">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h3>Integrity</h3>
+          <p>We conduct business with the highest ethical standards, ensuring honesty and transparency in every interaction.</p>
+        </div>
+        <div class="why-card animate-on-scroll animate-delay-1">
+          <div class="icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Innovation</h3>
+          <p>We embrace technology and creative solutions to continuously improve our services and client experience.</p>
+        </div>
+        <div class="why-card animate-on-scroll animate-delay-2">
+          <div class="icon"><i class="fas fa-users-cog"></i></div>
+          <h3>Collaboration</h3>
+          <p>We work as a team and with our clients to achieve shared goals and build lasting partnerships.</p>
+        </div>
+        <div class="why-card animate-on-scroll animate-delay-3">
+          <div class="icon"><i class="fas fa-trophy"></i></div>
+          <h3>Excellence</h3>
+          <p>We set the bar high and continuously strive to exceed expectations in everything we do.</p>
+        </div>
+        <div class="why-card animate-on-scroll animate-delay-4">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          <h3>Passion</h3>
+          <p>Our genuine love for real estate drives us to go above and beyond for every client and property.</p>
+        </div>
+        <div class="why-card animate-on-scroll">
+          <div class="icon"><i class="fas fa-leaf"></i></div>
+          <h3>Sustainability</h3>
+          <p>We promote environmentally responsible practices in property management and community development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: CTA -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <img src="Assets/cta-2.webp" alt="CTA Background">
+    </div>
+    <div class="cta-overlay"></div>
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2>Partner With Stackly Today</h2>
+        <p>Experience the difference of working with a team that truly cares about your property and your returns.</p>
+        <div class="cta-buttons">
+          <a href="404.html" class="btn btn-primary"><i class="fas fa-phone"></i> Get Free Consultation</a>
+          <a href="404.html" class="btn btn-outline"><i class="fas fa-play-circle"></i> View Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="index.html" class="logo" style="margin-bottom:16px;"><img src="Assets/logo.webp" alt="Stackly" class="logo-img" style="height:52px;"></a>
+          <p>Premium property management services trusted by thousands of property owners across the nation.</p>
+          <div class="footer-social">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Our Services</h3>
+          <ul class="footer-links">
+            <li><a href="404.html">Property Valuation</a></li>
+            <li><a href="404.html">Tenant Screening</a></li>
+            <li><a href="404.html">Rent Collection</a></li>
+            <li><a href="404.html">Maintenance</a></li>
+            <li><a href="404.html">Legal Compliance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Get In Touch</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <span class="fc-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <span>Stackly MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <span class="fc-icon fc-center"><i class="fas fa-phone-alt"></i></span>
+              <a href="404.html">+91 70107 92745</a>
+            </div>
+            <div class="footer-contact-item">
+              <span class="fc-icon fc-center"><i class="fas fa-envelope"></i></span>
+              <a href="404.html">thestackly@gmail.com</a>
+            </div>
+          </div>
+        </div>
+</div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Gallery Lightbox -->
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery Image">
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
