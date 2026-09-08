@@ -1011,6 +1011,13 @@ h1, h2, h3, h4, h5, h6 {
   gap: 30px;
 }
 
+/* Mission & Vision two-card grid (About page) */
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
 .why-card {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.1);
@@ -2551,6 +2558,8 @@ h1, h2, h3, h4, h5, h6 {
   .split-section { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .why-us-grid { grid-template-columns: 1fr; }
+  .mv-grid { grid-template-columns: 1fr; gap: 24px; }
+  .why-card { padding: 36px 24px; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -2968,6 +2977,8 @@ body:has(.auth-layout) {
 
 .auth-form .input-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .auth-form .input-wrapper i.field-icon {
@@ -2998,6 +3009,7 @@ body:has(.auth-layout) {
   font-size: 1rem;
   padding: 4px;
   transition: var(--transition);
+  z-index: 1;
 }
 
 .auth-form .input-wrapper .toggle-password:hover {
@@ -3717,6 +3729,10 @@ p, a, li, span, label {
    Mobile: Full-Screen Drawer + Close Button
    ============================================ */
 
+.nav-brand-row {
+  display: none;
+}
+
 .nav-close {
   display: none;
   position: absolute;
@@ -3757,12 +3773,12 @@ body.menu-open {
     height: 100%;
     height: 100dvh;
     margin: 0;
-    padding: 90px 24px 40px;
+    padding: 24px 24px 40px;
     background: #fff;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 22px;
+    gap: 12px;
     z-index: 1000;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -3779,6 +3795,19 @@ body.menu-open {
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, var(--accent), var(--primary));
+  }
+
+  .nav-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+  }
+
+  .nav-brand-row .logo-img {
+    height: 44px;
   }
 
   .nav-links.active {
@@ -3803,10 +3832,6 @@ body.menu-open {
     margin-top: 10px;
     border-color: var(--accent);
     color: var(--accent);
-  }
-
-  .nav-links .nav-close {
-    display: flex;
   }
 
   .menu-toggle {

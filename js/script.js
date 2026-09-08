@@ -324,6 +324,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!firstInvalid) firstInvalid = emailInput;
       }
 
+      // Validate the phone number: exactly 10 digits
+      var phoneInput = this.querySelector('input[type="tel"]');
+      if (phoneInput && phoneInput.value.trim()) {
+        var phoneDigits = phoneInput.value.replace(/\D/g, '');
+        if (phoneDigits.length !== 10) {
+          showFieldError(phoneInput, 'Phone number must be exactly 10 digits.');
+          if (!firstInvalid) firstInvalid = phoneInput;
+        }
+      }
+
       if (firstInvalid) {
         firstInvalid.focus();
         return;
@@ -492,6 +502,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if (pass && pass.value.trim() && !isValidPassword(pass.value)) {
         showFieldError(pass, 'Password must be at least 8 characters with 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.');
         if (!firstInvalid) firstInvalid = pass;
+      }
+
+      var phone = document.getElementById('signupPhone');
+      if (phone && phone.value.trim()) {
+        var phoneDigits = phone.value.replace(/\D/g, '');
+        if (phoneDigits.length !== 10) {
+          showFieldError(phone, 'Phone number must be exactly 10 digits.');
+          if (!firstInvalid) firstInvalid = phone;
+        }
       }
 
       if (pass && pass.value && confirm && confirm.value && pass.value !== confirm.value) {

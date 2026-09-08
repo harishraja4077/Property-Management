@@ -118,6 +118,14 @@ document.addEventListener('DOMContentLoaded', function () {
         row.style.display = row.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
       });
     });
+
+    // Pressing Enter in the search bar redirects to the 404 page
+    inp.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        window.location.href = '404.html';
+      }
+    });
   });
 
   // --- Generic confirm before destructive buttons (data-confirm) ---
@@ -127,7 +135,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // --- All non-sidebar buttons, filter tabs, top-user avatar & "more" links redirect to 404 page ---
+  // --- Filter table rows when a tab-chip is clicked (e.g. All/Landlords/Tenants/Admins) ---
+  function normalizeFilter(term) {
+    term = term.toLowerCase().trim();
+    if (term !== 'all' && /s$/.test(term) && !/ss$/.test(term)) term = term.slice(0, -1);
+    return term;
+  }
+
+  function filterTableByChip(chip) {
+    var tabs = chip.closest('.tabs-row');
+    if (tabs) {
+      tabs.querySelectorAll('.tab-chip').forEach(function (c) {
+        c.classList.toggle('active', c === chip);
+      });
+    }
+    var card = chip.closest('.dash-card');
+    if (!card) return;
+    var table = card.querySelector('table');
+    if (!table || !table.tBodies || !table.tBodies[0]) return;
+    var term = normalizeFilter(chip.textContent);
+    table.tBodies[0].querySelectorAll('tr').forEach(function (row) {
+      if (term === 'all') {
+        row.style.display = '';
+      } else {
+        row.style.display = row.textContent.toLowerCase().indexOf(term) !== -1 ? '' : 'none';
+      }
+    });
+  }
+
+  // --- Non-sidebar buttons, top-user avatar & "more" links redirect to 404 page; tab-chips filter ---
   document.addEventListener('click', function (e) {
     var el = e.target.closest ? e.target.closest('button, a[href], .tab-chip, .dash-top-user, .more') : null;
     if (!el) return;
@@ -139,6 +175,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Capture phase: swallow demo handlers (toast / switchTo / confirm) and navigate
     e.stopPropagation();
     e.preventDefault();
+    // Filter chips filter their table instead of navigating away
+    if (el.classList.contains('tab-chip')) {
+      filterTableByChip(el);
+      return;
+    }
     window.location.href = '404.html';
   }, true);
 
